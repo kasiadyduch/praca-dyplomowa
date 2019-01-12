@@ -1,0 +1,52 @@
+  <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+					<span class="login100-form-title">
+						PANEL LOGOWANIA
+					</span>
+          <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm)">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Email" formControlName="username" required>
+              <mat-error *ngIf="username.invalid">
+                {{getErrorMessage()}}
+              </mat-error>
+              <!--<mat-error *ngIf="username.hasError('required')">-->
+                <!--Email is <strong>required</strong>-->
+              <!--</mat-error>-->
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" formControlName="password">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
+
+
+            <div class="text-right p-t-13 p-b-23">
+						<span class="txt1">
+							Zapomniałeś
+						</span>
+
+						<a href="#" class="txt2">
+							 Hasła ?
+						</a>
+					</div>
+
+					<!--<div class="container-login100-form-btn">-->
+						<!--<a class="login100-form-btn"> Zaloguj się</a>-->
+					<!--</div>-->
+            <button class="container-login100-form-btn" type="submit">Zaloguj się</button>
+          </form>
+
+					<div class="flex-col-c p-t-170 p-b-40">
+						<span class="txt1 p-b-9">
+							Nie masz konta?
+						</span>
+					<a href="/register" class="txt3">
+							Zarejestruj się teraz
+						</a> 
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>

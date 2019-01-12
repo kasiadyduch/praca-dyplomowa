@@ -1,0 +1,39 @@
+
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Wybierz termin</ng-template>
+      <mat-form-field class="">
+        <input matInput [min]="minDate" [matDatepicker]="picker" placeholder="Wybierz" required formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Dalej</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Wybierz rodzaj badania</ng-template><mat-form-field>
+      <mat-select placeholder="Favorite food">
+        <mat-option *ngFor="let type of types" [value]="type.id">
+          {{type.description}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Wróć</button>
+        <button mat-button matStepperNext>Dalej</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

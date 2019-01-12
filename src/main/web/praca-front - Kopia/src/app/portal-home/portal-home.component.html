@@ -1,0 +1,19 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened class="left-sidenav">
+      <div class="user-profile text-center">
+        <div class="user-avatar">
+          <i class="material-icons">account_box</i>
+        </div>
+      </div>
+    <p> Adam Nowak</p>
+      <a [routerLink]="['/portal-home/portal-rezerwacja']"><i class="material-icons">add_box</i><span class="text">Dodaj nową rezerwację</span></a>
+      <a [routerLink]="['/home/archive']"><i class="material-icons">history</i><span class="text">Archiwum rezerwacji</span></a>
+      <a [routerLink]="['/home/settings']"><i class="material-icons">settings</i><span class="text">Ustawienia</span></a>
+      <a [routerLink]="['/login']" (click)="logout()"><i class="material-icons">exit_to_app</i><span class="text">Wyloguj się</span></a>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

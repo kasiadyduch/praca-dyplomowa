@@ -1,0 +1,23 @@
+import { Injectable } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const options = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+};
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LoginService {
+
+  private URL: string = "http://localhost:8080/auth";
+
+  doLogin(loginForm: NgForm) {
+    return this._http.post(this.URL, loginForm, options);
+  }
+
+  constructor(private _http: HttpClient) { }
+}
