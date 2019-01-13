@@ -4,4 +4,4 @@
 logs/*
 target/*
 out/*
-.idea/*
+/.idea
