@@ -26,7 +26,8 @@ import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { from } from 'rxjs';
 import { PortalHomeComponent } from './portal-home/portal-home.component';
-import { PortalRezerwacjaComponent } from './portal-rezerwacja/portal-rezerwacja.component'
+import { PortalRezerwacjaComponent } from './portal-rezerwacja/portal-rezerwacja.component';
+import { PortalUstawieniaComponent } from './portal-ustawienia/portal-ustawienia.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { PortalRezerwacjaComponent } from './portal-rezerwacja/portal-rezerwacja
     RegisterComponent,
     PortalHomeComponent,
     PortalRezerwacjaComponent,
+    PortalUstawieniaComponent,
   ],
   imports: [
     BrowserModule,

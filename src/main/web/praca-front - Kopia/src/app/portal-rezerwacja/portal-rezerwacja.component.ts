@@ -8,6 +8,11 @@ import {TypesService} from "../services/types.service";
   styleUrls: ['./portal-rezerwacja.component.css']
 })
 export class PortalRezerwacjaComponent implements OnInit {
+  selectedFile = null;
+
+  onFileSelected(event) {
+    this.selectedFile = event.target.selectedFile[0];
+  }
 
   constructor(private _formBuilder: FormBuilder, private  _typesService: TypesService) { }
 
@@ -28,7 +33,6 @@ export class PortalRezerwacjaComponent implements OnInit {
     this._typesService.getAllTypes(this.token).subscribe(data => {
       this.types = data;
       console.log(this.types);
-
     });
   }
 
