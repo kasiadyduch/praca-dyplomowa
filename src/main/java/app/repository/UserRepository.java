@@ -16,6 +16,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query("select u from User u where u.pesel like ?1")
     User findUserByPeselContaining(String s);
 
-    @Query("select u from User u where u.email = ?1")
+    @Query("select u from User u where u.email like ?1")
     User findUserByEmail(String email);
+
+    @Query("select u.id from User u where u.email = ?1")
+    Integer xGetUserIdByEmail(String email);
 }

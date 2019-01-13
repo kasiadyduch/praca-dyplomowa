@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="DEV_HOME" value="C:/Users/Kasia/Downloads/PDbeta2-master/logs" />
+    <!--<property name="DEV_HOME" value="C:/Users/Kasia/Downloads/PDbeta2-master/logs" />-->
+    <property name="DEV_HOME" value="C:/Projects/praca-dyplomowa/logs" />
 
     <appender name="FILE-AUDIT"
               class="ch.qos.logback.core.rolling.RollingFileAppender">

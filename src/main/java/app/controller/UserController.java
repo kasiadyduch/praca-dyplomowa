@@ -1,6 +1,7 @@
 package app.controller;
 
 import app.model.Authority;
+import org.omg.SendingContext.RunTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -42,7 +43,12 @@ public class UserController {
 
     @RequestMapping(value = "all", method = RequestMethod.GET)
     public Iterable<User> getAllUsers() {
-        return userRepository.findAll();
+
+        List<User> result = userRepository.findAll();
+        for (User u : result) {
+            u.setPassword("");
+        }
+        return result;
     }
 
     @RequestMapping(value = "userid/{userid}", method = RequestMethod.GET)
@@ -52,27 +58,46 @@ public class UserController {
         if (userRepository.findOne(userid) == null) {
             throw new RuntimeException("Nie ma usera o podanym id!");
         }
-        return userRepository.findOne(userid);
+        User result = userRepository.findOne(userid);
+        result.setPassword("");
+        return result;
     }
 
     @RequestMapping(value = "lastname/{lastname}", method = RequestMethod.GET)
     public Iterable<User> getUserByLastname(
-            @RequestParam(value = "lastname", required = true) String lastname
+            @PathVariable(value = "lastname") String lastname
     ) {
         if (userRepository.findUsersByLastnameContaining(lastname).isEmpty()) {
             throw new RuntimeException("Nie ma usera o podanym nazwisku!");
         }
-        return userRepository.findUsersByLastnameContaining(lastname);
+        List<User> result = userRepository.findUsersByLastnameContaining(lastname);
+        for(User u : result) {
+            u.setPassword("");
+        }
+        return result;
     }
 
     @RequestMapping(value = "pesel/{pesel}", method = RequestMethod.GET)
     public User getUserByPesel(
-            @RequestParam(value = "pesel", required = true) String pesel
+            @PathVariable(value = "pesel") String pesel
     ) {
         if (userRepository.findUserByPeselContaining(pesel) == null) {
             throw new RuntimeException("Nie ma usera o podanym peselu!");
         }
-        return userRepository.findUserByPeselContaining(pesel);
+        User result = userRepository.findUserByPeselContaining(pesel);
+        result.setPassword("");
+        return result;
+    }
+
+    @RequestMapping(value = "email/{email}", method = RequestMethod.GET)
+    public Integer getUserIdByEmail(
+            @RequestParam(value = "email") String email
+    ) {
+        if (userRepository.findUserByEmail(email) == null) {
+            throw new RuntimeException("Nie ma usera o podanym email!");
+        }
+        User user = userRepository.findUserByEmail(email);
+        return user.getId();
     }
 
     @RequestMapping(value = "mpAdmin", method = RequestMethod.GET)
