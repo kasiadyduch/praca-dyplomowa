@@ -39,6 +39,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${jwt.route.authentication.path}")
     private String authenticationPath;
 
+    @Value("/upload/uploadFile")
+    private String uploadPath;
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
@@ -79,7 +82,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .ignoring()
                 .antMatchers(
                         HttpMethod.POST,
-                        authenticationPath
+                        authenticationPath,
+                        uploadPath
                 )
                 .and()
                 .ignoring()
