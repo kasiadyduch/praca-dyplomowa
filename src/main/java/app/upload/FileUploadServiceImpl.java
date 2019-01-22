@@ -17,6 +17,7 @@ public class FileUploadServiceImpl implements FileUploadService {
         String extension = FilenameUtils.getExtension(name);
         if (!file.isEmpty()) {
             try {
+
                 byte[] bytes = file.getBytes();
 
                 // Creating the directory to store file

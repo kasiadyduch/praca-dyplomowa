@@ -31,7 +31,7 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>KROK 3 - Dołączanie skierowania</ng-template>
-    <input type="file"(change)="onFileSelected($event)">
+    <input type="file" id="file" (change)="handleFileInput($event.target.files)" accept="image/png, image/jpeg, application/pdf, image/jpg">
     <div>
       <button mat-button matStepperPrevious>Wróć</button>
       <button mat-button matStepperNext>Dalej</button></div>

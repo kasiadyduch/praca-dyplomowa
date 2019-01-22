@@ -89,15 +89,16 @@ public class UserController {
         return result;
     }
 
-    @RequestMapping(value = "email/{email}", method = RequestMethod.GET)
-    public Integer getUserIdByEmail(
-            @RequestParam(value = "email") String email
+    @RequestMapping(value = "email/{email}/", method = RequestMethod.GET)
+    public User getByEmail(
+            @PathVariable(value = "email") String email
     ) {
         if (userRepository.findUserByEmail(email) == null) {
-            throw new RuntimeException("Nie ma usera o podanym email!");
+            throw new RuntimeException("Nie ma usera o podanym email! " + email);
         }
-        User user = userRepository.findUserByEmail(email);
-        return user.getId();
+        User result = userRepository.findUserByEmail(email);
+        result.setPassword("");
+        return result;
     }
 
     @RequestMapping(value = "mpAdmin", method = RequestMethod.GET)

@@ -28,7 +28,7 @@ import { from } from 'rxjs';
 import { PortalHomeComponent } from './portal-home/portal-home.component';
 import { PortalRezerwacjaComponent } from './portal-rezerwacja/portal-rezerwacja.component';
 import { PortalUstawieniaComponent } from './portal-ustawienia/portal-ustawienia.component';
-import {CookieService} from "ngx-cookie-service";
+import {CookieService} from 'ngx-cookie-service';
 import { PortalArchiwumComponent } from './portal-archiwum/portal-archiwum.component';
 
 @NgModule({

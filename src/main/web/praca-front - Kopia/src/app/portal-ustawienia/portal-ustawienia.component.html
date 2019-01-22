@@ -4,26 +4,32 @@
 
 <form class="example-form">
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Imię" value="imię">
+    <input matInput placeholder="Imię" value="{{usernameFirstName}}">
   </mat-form-field>
   <form class="example-form">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Nazwisko" value="nazwisko">
+      <input matInput placeholder="Nazwisko" value="{{usernameLastName}}">
     </mat-form-field>
 
     <p> Dane kontaktowe</p>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Adres zamieszkania - kod pocztowy" value="{{usernamePostCode}}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Adres zamieszkania - miejscowość" value="{{usernameCity}}">
+    </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Adres zamieszkania - ulica" value="ulica">
+        <input matInput placeholder="Adres zamieszkania - ulica" value="{{usernameStreet}}">
       </mat-form-field>
       <mat-form-field class="example-form">
-        <input matInput placeholder="Adres zamieszkania - numer budynku" value="nr budynku">
+        <input matInput placeholder="Adres zamieszkania - numer budynku" value="{{usernameSnumber}}">
         </mat-form-field>
         <mat-form-field class="example-form">
-          <input matInput placeholder="Adres zamieszkania - numer domu" value="nr domu">
+          <input matInput placeholder="Adres zamieszkania - numer domu" value="{{usernameBnumber}}">
           </mat-form-field>
           <form class="example-form">
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Telefon" value="telefon">
+          <input matInput placeholder="Telefon" value="{{usernamePhone}}">
         </mat-form-field>
             <button mat-button>Zapisz dane</button>
             <button mat-button> Anuluj</button>
