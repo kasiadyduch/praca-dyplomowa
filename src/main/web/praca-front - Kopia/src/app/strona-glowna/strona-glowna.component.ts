@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare let $: any;
 
 @Component({
   selector: 'app-strona-glowna',
@@ -10,6 +11,9 @@ export class StronaGlownaComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    $(window).on('load', function() {
+      $('#exampleModalCenter').modal('show');
+    });
   }
 
 }

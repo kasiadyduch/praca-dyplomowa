@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {MatNativeDateModule,MatSnackBarModule,MatIconModule,MatDialogModule, MatButtonModule, MatTableModule, 
-MatPaginatorModule , MatSortModule,MatTabsModule, MatCheckboxModule, MatToolbarModule, MatCard, MatCardModule, MatFormField,
+import {MatNativeDateModule,MatSnackBarModule,MatIconModule,MatDialogModule, MatButtonModule, MatTableModule,
+MatPaginatorModule , MatSortModule, MatCheckboxModule, MatToolbarModule, MatCard, MatCardModule, MatFormField,
  MatFormFieldModule, MatProgressSpinnerModule, MatInputModule, MatSidenavModule, MAT_DATE_LOCALE } from  '@angular/material';
 import {MatDatepickerModule} from  '@angular/material/datepicker';
 import {MatRadioModule} from  '@angular/material/radio';
@@ -28,7 +28,8 @@ import { from } from 'rxjs';
 import { PortalHomeComponent } from './portal-home/portal-home.component';
 import { PortalRezerwacjaComponent } from './portal-rezerwacja/portal-rezerwacja.component';
 import { PortalUstawieniaComponent } from './portal-ustawienia/portal-ustawienia.component';
-
+import {CookieService} from "ngx-cookie-service";
+import { PortalArchiwumComponent } from './portal-archiwum/portal-archiwum.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { PortalUstawieniaComponent } from './portal-ustawienia/portal-ustawienia
     PortalHomeComponent,
     PortalRezerwacjaComponent,
     PortalUstawieniaComponent,
+    PortalArchiwumComponent
   ],
   imports: [
     BrowserModule,
@@ -55,14 +57,13 @@ import { PortalUstawieniaComponent } from './portal-ustawienia/portal-ustawienia
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
-    MatTableModule,
     MatNativeDateModule,
     MatSnackBarModule,
     MatIconModule,
     MatDialogModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTabsModule,
+    MatTableModule,
     MatStepperModule,
     MatCheckboxModule,
     MatToolbarModule,
@@ -74,14 +75,14 @@ import { PortalUstawieniaComponent } from './portal-ustawienia/portal-ustawienia
     MatSelectModule,
     MatSliderModule,
     MatDividerModule  ,
-    MatSidenavModule
+    MatSidenavModule,
   ],
-  exports: [MatTabsModule,MatDividerModule,
+  exports: [MatTableModule,MatDividerModule,
   MatSliderModule,MatSelectModule,MatRadioModule,MatNativeDateModule,MatDatepickerModule,MatSnackBarModule,MatIconModule,
   MatDialogModule,MatProgressSpinnerModule,MatButtonModule,MatSortModule, MatCheckboxModule, MatToolbarModule,
-  MatCardModule,MatTableModule,MatTabsModule, MatFormFieldModule, MatProgressSpinnerModule, MatInputModule,
+  MatCardModule, MatFormFieldModule, MatProgressSpinnerModule, MatInputModule,
   MatPaginatorModule],
-  providers: [
+  providers: [ CookieService,
     {provide: MAT_DATE_LOCALE, useValue: 'pl'}
   ],
   bootstrap: [AppComponent]

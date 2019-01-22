@@ -7,6 +7,13 @@
 .example-full-width {
   width: 100%;
 }
+mat-form-field {
+  width: 1100px;
+}
+button {
+  margin: 10px;
+
+}
 
 @font-face {
   font-family: Ubuntu-Regular;
@@ -27,7 +34,9 @@
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
-
+mat-horizontal-stepper {
+  margin-top: 60px;
+}
 * {
   margin: 0px;
   padding: 0px;
@@ -64,14 +73,15 @@ a:hover {
 /*---------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {
   margin: 0px;
+  text-align: center;
 }
 
 p {
   font-family: Ubuntu-Regular;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 1.7;
   color: #666666;
-  margin: 0px;
+  margin: 50px;
 }
 
 ul, li {
@@ -3390,8 +3400,9 @@ button {
   float: right;
 
 }
-
-
-
+h2 {
+  color: #00a8b1;
+  text-align: center;
+  margin: 40px;}
 
 

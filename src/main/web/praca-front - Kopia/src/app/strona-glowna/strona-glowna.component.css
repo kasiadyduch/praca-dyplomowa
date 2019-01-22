@@ -1,0 +1,17 @@
+.modal-body {
+  text-align: justify;
+  color: #000000;
+}
+.modal-header {
+  background-color: #00a8b1;
+  color: white;
+  text-align: center;
+}
+h5 {
+  font-size: 20px;
+  color: white;
+  margin: 20px;
+}
+h4 {
+  text-align: center;
+}

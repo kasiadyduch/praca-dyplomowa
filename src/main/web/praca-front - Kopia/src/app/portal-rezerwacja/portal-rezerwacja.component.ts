@@ -19,7 +19,11 @@ export class PortalRezerwacjaComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   isOptional = false;
-  minDate: Date = new Date();
+  myFilter = (d: Date): boolean => {
+    const day = d.getDay();
+    return day !== 0 && day !== 6;
+  }
+  minDate = new Date;
   types: any;
   token: string = localStorage.getItem("APP_TOKEN");
   ngOnInit() {

@@ -14,13 +14,13 @@ public class FileUploadServiceImpl implements FileUploadService {
     @Override
     public String uploadFile(MultipartFile file) {
         String name = file.getOriginalFilename();
-//        String extension = FilenameUtils.getExtension(name);
+        String extension = FilenameUtils.getExtension(name);
         if (!file.isEmpty()) {
             try {
                 byte[] bytes = file.getBytes();
 
                 // Creating the directory to store file
-                String rootPath = "C:/Projects/praca-dyplomowa";
+                String rootPath = "C:/Users/Kasia/Downloads/PDbeta2-master";
                 File dir = new File(rootPath + File.separator + "attachments");
                 if (!dir.exists())
                     dir.mkdirs();

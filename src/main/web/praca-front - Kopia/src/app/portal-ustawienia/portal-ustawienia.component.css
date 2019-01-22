@@ -17,4 +17,9 @@ p {
 button {
   color: white;
   background-color: #00a8b1;
+  margin: 10px;
 }
+h2 {
+  color: #00a8b1;
+  text-align: center;
+  margin: 40px;}

@@ -8,8 +8,6 @@
   .example-full-width {
     width: 100%;
   }
-  
-
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -129,6 +127,10 @@
       outline: none !important;
       border: none;
       background: transparent;
+      /*color: #00a8b1;*/
+      /*font-size: 18px;*/
+      /*font-weight: bold;*/
+
   }
   
   button:hover {

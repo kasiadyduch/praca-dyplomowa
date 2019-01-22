@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md">
+    <h2> Archiwum moich rezerwacji</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="bookings?.length">
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> Lp. </th>
+    <td mat-cell *matCellDef="let booking"> {{booking.lp}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Pacjent">
+    <th mat-header-cell *matHeaderCellDef> Pacjent </th>
+    <td mat-cell *matCellDef="let booking"> {{booking.patient}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Data">
+    <th mat-header-cell *matHeaderCellDef> Data </th>
+    <td mat-cell *matCellDef="let booking"> {{booking.date}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Typ">
+      <th mat-header-cell *matHeaderCellDef> Rodzaj badań</th>
+      <td mat-cell *matCellDef="let booking"> {{booking.description}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Załącznik">
+      <th mat-header-cell *matHeaderCellDef> Załącznik </th>
+      <td mat-cell *matCellDef="let booking"> {{booking.attachmentpath != null ? booking.attachmentpath : '-'}} </td>
+    </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<div *ngIf="!bookings?.length">Nie masz jeszcze żadnych rezerwacji</div>
+  </div>
+</div>
