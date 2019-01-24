@@ -1,6 +1,8 @@
 package app.controller;
 
 import app.model.Authority;
+import app.model.UserAuthority;
+import app.repository.UserAuthorityRepository;
 import org.omg.SendingContext.RunTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,6 +36,9 @@ public class UserController {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    UserAuthorityRepository userAuthorityRepository;
 
     @Autowired
     Validator validator;
@@ -153,6 +158,9 @@ public class UserController {
                 user.getEnabled(),
                 user.getLastpasswordresetdate(),
                 user.getAuthorities()));
+
+        int userId = userRepository.findUserByEmail(user.getEmail()).getId();
+        userAuthorityRepository.save(new UserAuthority(0, userId, 3));
     }
 
     @RequestMapping(value = "{userid}", method = RequestMethod.POST)
