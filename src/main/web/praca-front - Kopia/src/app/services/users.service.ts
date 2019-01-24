@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from "@angular/common/http";
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 const options = {
   headers: new HttpHeaders({
@@ -11,14 +11,18 @@ const options = {
 })
 export class UsersService {
 
-  private URL: string = "http://localhost:8080/api/users/";
+  private URL = 'http://localhost:8080/api/users/';
 
-  getMpAdminUsers(token:string) {
+  getMpAdminUsers(token: string) {
     options.headers.append('Authorization', 'Bearer' + token);
     return this._http.get(this.URL + 'mpAdmin', options);
   }
   getByEmail(email: string) {
     return this._http.get(this.URL +  'email/' + email + '/');
+  }
+  createUser(token: string) {
+    options.headers.append('Authorization', 'Bearer' + token);
+    return this._http.post(this.URL +  'add', options );
   }
   constructor(private _http: HttpClient) { }
 }
