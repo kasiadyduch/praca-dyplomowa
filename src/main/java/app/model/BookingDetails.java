@@ -16,6 +16,7 @@ public class BookingDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    Integer user_id;
     String patient;
     Date date;
     String description;
