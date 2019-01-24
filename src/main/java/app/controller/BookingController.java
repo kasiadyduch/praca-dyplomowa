@@ -45,19 +45,19 @@ public class BookingController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public String createBooking(
-            @RequestParam MultipartFile file) {
-        return fileUploadService.uploadFile(file);
+    public void createBooking(
+            @RequestBody Booking booking) {
+//        return fileUploadService.uploadFile(file);
 //        booking.setAttachmentpath(filePath);
-//        bookingRepository.save(new Booking(
-//                0,
-//                booking.getUserid(),
-//                booking.getTypeid(),
-//                booking.getDate(),
-//                booking.getAttachmentpath()));
+        bookingRepository.save(new Booking(
+                0,
+                booking.getUserid(),
+                booking.getTypeid(),
+                booking.getDate(),
+                booking.getAttachmentpath()));
     }
 
-    @RequestMapping(value = "{bookingid}", method = RequestMethod.PUT)
+    @RequestMapping(value = "{bookingid}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     public void updateBooking(
             @PathVariable(value = "bookingid") Integer bookingid,
@@ -66,12 +66,12 @@ public class BookingController {
         if (bookingRepository.findOne(bookingid) == null) {
             throw new RuntimeException("Nie ma rezerwacji o podanym id!");
         }
-        Booking r = bookingRepository.findOne(bookingid);
-        r.setUserid(booking.getUserid());
-        r.setTypeid(booking.getTypeid());
-        r.setDate(booking.getDate());
-        r.setAttachmentpath(booking.getAttachmentpath());
-        bookingRepository.save(r);
+        Booking b = bookingRepository.findOne(bookingid);
+        b.setUserid(booking.getUserid());
+        b.setTypeid(booking.getTypeid());
+        b.setDate(booking.getDate());
+        b.setAttachmentpath(booking.getAttachmentpath());
+        bookingRepository.save(b);
 
     }
 

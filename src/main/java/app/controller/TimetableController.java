@@ -21,9 +21,9 @@ public class TimetableController {
         return timetableRepository.findAll();
     }
 
-    @RequestMapping(value = "/doctorid", method = RequestMethod.GET)
+    @RequestMapping(value = "{doctorid}", method = RequestMethod.GET)
     public Iterable<Timetable> getByDoctorid(
-            @RequestParam(value = "doctorid") Integer doctorid
+            @PathVariable(value = "doctorid") Integer doctorid
     ) {
         if (timetableRepository.findTimetablesByDoctorid(doctorid).isEmpty()) {
             throw new RuntimeException("Nie ma lekarza o podanym id!");
@@ -31,9 +31,9 @@ public class TimetableController {
         return timetableRepository.findTimetablesByDoctorid(doctorid);
     }
 
-    @RequestMapping(value = "/dayofweek", method = RequestMethod.GET)
+    @RequestMapping(value = "{dayofweek}", method = RequestMethod.GET)
     public Iterable<Timetable> getByDayofweek(
-            @RequestParam(value = "dayofweek") Integer dayofweek
+            @PathVariable(value = "dayofweek") Integer dayofweek
     ) {
         if (timetableRepository.findTimetablesByDayofweek(dayofweek).isEmpty()) {
             throw new RuntimeException("Nie ma przyjęć danego dnia!");

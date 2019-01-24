@@ -51,7 +51,7 @@ public class UserController {
         return result;
     }
 
-    @RequestMapping(value = "userid/{userid}", method = RequestMethod.GET)
+    @RequestMapping(value = "{userid}", method = RequestMethod.GET)
     public User getSingleUser(
             @PathVariable(value = "userid") Integer userid
     ) {
@@ -155,7 +155,7 @@ public class UserController {
                 user.getAuthorities()));
     }
 
-    @RequestMapping(value = "{userid}", method = RequestMethod.PUT)
+    @RequestMapping(value = "{userid}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     public void updateUser(
             @PathVariable(value = "userid") Integer userid,
@@ -195,13 +195,13 @@ public class UserController {
         userRepository.delete(userid);
     }
 
-    @RequestMapping(value = "check", method = RequestMethod.POST)
-    public boolean checkPassword(
-            @RequestParam(value = "email") String email,
-            @RequestParam(value = "pass") String pass
-    ) {
-        User user = userRepository.findUserByEmail(email);
-        String hashedPass = user.getPassword();
-        return passwordEncoder.checkPassword(pass, hashedPass);
-    }
+//    @RequestMapping(value = "check", method = RequestMethod.POST)
+//    public boolean checkPassword(
+//            @RequestParam(value = "email") String email,
+//            @RequestParam(value = "pass") String pass
+//    ) {
+//        User user = userRepository.findUserByEmail(email);
+//        String hashedPass = user.getPassword();
+//        return passwordEncoder.checkPassword(pass, hashedPass);
+//    }
 }
