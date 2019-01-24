@@ -45,8 +45,9 @@ public class BookingController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void createBooking(@RequestParam MultipartFile file) {
-        String filePath = fileUploadService.uploadFile(file);
+    public String createBooking(
+            @RequestParam MultipartFile file) {
+        return fileUploadService.uploadFile(file);
 //        booking.setAttachmentpath(filePath);
 //        bookingRepository.save(new Booking(
 //                0,
