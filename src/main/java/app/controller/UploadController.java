@@ -5,6 +5,8 @@ import app.upload.FileUploadServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,7 +20,6 @@ import java.util.Date;
 
 @RestController
 @Slf4j
-@CrossOrigin(origins = "*", maxAge = 3600, allowCredentials = "true", allowedHeaders = "GET, POST, PUT, OPTION, DELETE")
 @RequestMapping("/upload/")
 public class UploadController {
 
@@ -36,6 +37,4 @@ public class UploadController {
     ) {
         return fileUploadService.uploadFile(file);
     }
-
-
 }

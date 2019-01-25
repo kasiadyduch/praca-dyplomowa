@@ -6,12 +6,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by Karolina on 29.11.2017.
- */
 public class CorsFilter implements Filter {
-
-
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {}

@@ -86,6 +86,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         authenticationPath,
                         uploadPath
                 )
+                .antMatchers(
+                        HttpMethod.OPTIONS,
+                        uploadPath
+                )
                 .and()
                 .ignoring()
                 .antMatchers(
