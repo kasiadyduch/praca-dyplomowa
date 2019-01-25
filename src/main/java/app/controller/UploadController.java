@@ -5,6 +5,7 @@ import app.upload.FileUploadServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ import java.util.Date;
 
 @RestController
 @Slf4j
+@CrossOrigin
 @RequestMapping("/upload/")
 public class UploadController {
 
@@ -31,10 +33,10 @@ public class UploadController {
     }
 
     @RequestMapping(value = "uploadFile", method = RequestMethod.POST)
-    public @ResponseBody
-    String uploadFileHandler(
+    @ResponseStatus(HttpStatus.CREATED)
+    public void uploadFileHandler(
             @RequestParam("file") MultipartFile file
     ) {
-        return fileUploadService.uploadFile(file);
+        fileUploadService.uploadFile(file);
     }
 }

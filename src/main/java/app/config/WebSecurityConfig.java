@@ -71,7 +71,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/auth/**").permitAll()
 		        .antMatchers("/api/**").permitAll()
 		        .antMatchers("/api/users/mpAdmin").permitAll()
-                .antMatchers("/api/upload/uploadFile").permitAll()
+                .antMatchers("/upload/uploadFile").permitAll()
                 .anyRequest().authenticated();
 
         httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
