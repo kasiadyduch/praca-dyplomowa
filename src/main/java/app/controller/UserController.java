@@ -1,6 +1,8 @@
 package app.controller;
 
 import app.model.Authority;
+import app.model.UserAuthority;
+import app.repository.UserAuthorityRepository;
 import org.omg.SendingContext.RunTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,6 +38,9 @@ public class UserController {
     UserRepository userRepository;
 
     @Autowired
+    UserAuthorityRepository userAuthorityRepository;
+
+    @Autowired
     Validator validator;
 
     @Autowired
@@ -51,7 +56,7 @@ public class UserController {
         return result;
     }
 
-    @RequestMapping(value = "userid/{userid}", method = RequestMethod.GET)
+    @RequestMapping(value = "{userid}", method = RequestMethod.GET)
     public User getSingleUser(
             @PathVariable(value = "userid") Integer userid
     ) {
@@ -153,9 +158,12 @@ public class UserController {
                 user.getEnabled(),
                 user.getLastpasswordresetdate(),
                 user.getAuthorities()));
+
+        int userId = userRepository.findUserByEmail(user.getEmail()).getId();
+        userAuthorityRepository.save(new UserAuthority(0, userId, 3));
     }
 
-    @RequestMapping(value = "{userid}", method = RequestMethod.PUT)
+    @RequestMapping(value = "{userid}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     public void updateUser(
             @PathVariable(value = "userid") Integer userid,
@@ -195,13 +203,13 @@ public class UserController {
         userRepository.delete(userid);
     }
 
-    @RequestMapping(value = "check", method = RequestMethod.POST)
-    public boolean checkPassword(
-            @RequestParam(value = "email") String email,
-            @RequestParam(value = "pass") String pass
-    ) {
-        User user = userRepository.findUserByEmail(email);
-        String hashedPass = user.getPassword();
-        return passwordEncoder.checkPassword(pass, hashedPass);
-    }
+//    @RequestMapping(value = "check", method = RequestMethod.POST)
+//    public boolean checkPassword(
+//            @RequestParam(value = "email") String email,
+//            @RequestParam(value = "pass") String pass
+//    ) {
+//        User user = userRepository.findUserByEmail(email);
+//        String hashedPass = user.getPassword();
+//        return passwordEncoder.checkPassword(pass, hashedPass);
+//    }
 }

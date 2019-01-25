@@ -20,15 +20,20 @@ public class BookingDetailsController {
     BookingDetailsRepository bookingDetailsRepository;
 
     @RequestMapping(value = "all", method = RequestMethod.GET)
-//@PreAuthorize("hasRole('ADMIN')")
     public Iterable<BookingDetails> getAllBookingDetails() {
         return bookingDetailsRepository.findAll();
     }
 
     @RequestMapping(value = "{today}", method = RequestMethod.GET)
-//@PreAuthorize("hasRole('ADMIN')")
     public Iterable<BookingDetails> getCurrentBookingDetailsByTodayDate(
             @PathVariable(value = "today") Date today) {
         return bookingDetailsRepository.findAllByDateEquals(today);
+    }
+
+    @RequestMapping(value = "user/{userId}", method = RequestMethod.GET)
+    public Iterable<BookingDetails> getByUsreId(
+            @PathVariable(value = "userId") Integer userId
+    ) {
+        return bookingDetailsRepository.findAllByUser_id(userId);
     }
 }

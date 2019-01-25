@@ -5,20 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Date;
 
 @Entity
-@Table(name = "booking_details")
+@Table(name = "user_authority")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookingDetails {
+public class UserAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     Integer user_id;
-    String patient;
-    Date date;
-    String description;
-    String attachmentpath;
+    Integer authority_id;
 }
