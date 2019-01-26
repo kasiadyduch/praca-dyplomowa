@@ -7,14 +7,16 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.sql.Timestamp;
+import java.time.Instant;
 
 @Service
 public class FileUploadServiceImpl implements FileUploadService {
 
     @Override
     public String uploadFile(MultipartFile file) {
-        String name = file.getOriginalFilename();
-        String extension = FilenameUtils.getExtension(name);
+        String fileName = file.getOriginalFilename();
+        String extension = FilenameUtils.getExtension(fileName);
         if (!file.isEmpty()) {
             try {
 
@@ -26,20 +28,23 @@ public class FileUploadServiceImpl implements FileUploadService {
                 if (!dir.exists())
                     dir.mkdirs();
 
+                Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+                String finalName = timestamp.getTime() + "." + extension;
+
                 // Create the file on server
                 File serverFile = new File(dir.getAbsolutePath()
-                        + File.separator + name);
+                        + File.separator + finalName);
                 BufferedOutputStream stream = new BufferedOutputStream(
                         new FileOutputStream(serverFile));
                 stream.write(bytes);
                 stream.close();
 
-                return name;
+                return finalName;
             } catch (Exception e) {
-                return "You failed to upload " + name + " => " + e.getMessage();
+                return e.getMessage();
             }
         } else {
-            return "You failed to upload " + name
+            return "You failed to upload " + fileName
                     + " because the file was empty.";
         }
     }

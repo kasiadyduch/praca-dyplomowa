@@ -34,9 +34,11 @@ public class UploadController {
 
     @RequestMapping(value = "uploadFile", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void uploadFileHandler(
+    public @ResponseBody
+    String uploadFileHandler(
             @RequestParam("file") MultipartFile file
     ) {
-        fileUploadService.uploadFile(file);
+        System.out.println(fileUploadService.uploadFile(file));
+        return fileUploadService.uploadFile(file);
     }
 }

@@ -1,51 +1,65 @@
 <h2> Formularz dodawania nowej rezerwacji</h2>
+<form [formGroup]="bookingForm" (ngSubmit)="submitForm(bookingForm)">
+<div class="col-md-12">
+  <input type="file" id="file" (change)="handleFileInput($event.target.files)" accept="image/png, image/jpeg, application/pdf, image/jpg">
+  <mat-select placeholder="Wybierz rodzaj badania" formControlName="typeid">
+    <mat-option *ngFor="let type of types" [value]="type.id" >
+    {{type.description}}
+    </mat-option>
+    </mat-select>
+  <input matInput [min]="minDate" [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Wybierz" required
+         formControlName="date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <button mat-button type="submit">Zarezerwuj termin</button>
 
-<mat-horizontal-stepper linear #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>KROK 1 - Wybór terminu</ng-template>
-      <mat-form-field class="">
-          <input matInput [min]="minDate" [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Wybierz" required formControlName="date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Dalej</button>
-        </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>KROK 2 - Wybór rodzaju badań</ng-template><mat-form-field>
-      <mat-select placeholder="Wybierz rodzaj badania">
-        <mat-option *ngFor="let type of types" [value]="type.id" >
-          {{type.description}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Wróć</button>
-        <button mat-button matStepperNext>Dalej</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>KROK 3 - Dołączanie skierowania</ng-template>
-    <input type="file" id="file" (change)="handleFileInput($event.target.files)" accept="image/png, image/jpeg, application/pdf, image/jpg">
-    <div>
-      <button mat-button matStepperPrevious>Wróć</button>
-      <button mat-button matStepperNext>Dalej</button></div>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>KROK 4 - Uwagi, wskazówki do badań</ng-template>
-    <mat-form-field>
-      <textarea matInput placeholder="Tutaj należy wpisać uwagi, np. mam aktualne badania z krwi, psychotechniczne, itp."></textarea>
-    </mat-form-field>
-    <div>
-      <button mat-button (click)="stepper.reset()">Wyczyść cały formularz</button>
-      <button mat-button (submit)="stepper.send()">Zarezerwuj termin</button>
-    </div>
-  </mat-step>
+</div>
+</form>
+<!--<mat-horizontal-stepper linear #stepper>-->
+    <!--<form [formGroup]="firstFormGroup">-->
+  <!--<mat-step [stepControl]="firstFormGroup">-->
+      <!--<ng-template matStepLabel>KROK 1 - Wybór terminu</ng-template>-->
+      <!--<mat-form-field class="">-->
+        <!--<input type="file" id="file" (change)="handleFileInput($event.target.files)" accept="image/png, image/jpeg, application/pdf, image/jpg">-->
+        <!--</mat-form-field>-->
+        <!--<div>-->
+          <!--<button mat-button matStepperNext>Dalej</button>-->
+        <!--</div>-->
+  <!--</mat-step>-->
+  <!--<mat-step [stepControl]="secondFormGroup" [optional]="isOptional">-->
+    <!--&lt;!&ndash;<form [formGroup]="secondFormGroup">&ndash;&gt;-->
+      <!--<ng-template matStepLabel>KROK 2 - Wybór rodzaju badań</ng-template><mat-form-field>-->
+      <!--<mat-select placeholder="Wybierz rodzaj badania">-->
+        <!--<mat-option *ngFor="let type of types" [value]="type.id" >-->
+          <!--{{type.description}}-->
+        <!--</mat-option>-->
+      <!--</mat-select>-->
+    <!--</mat-form-field>-->
+      <!--<div>-->
+        <!--<button mat-button matStepperPrevious>Wróć</button>-->
+        <!--<button mat-button matStepperNext>Dalej</button>-->
+      <!--</div>-->
+  <!--</mat-step>-->
+    <!--</form>-->
+  <!--<mat-step>-->
+    <!--<ng-template matStepLabel>KROK 3 - Dołączanie skierowania</ng-template>-->
+    <!--&lt;!&ndash;<input matInput [min]="minDate" [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Wybierz" required formControlName="date">&ndash;&gt;-->
+    <!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+    <!--<mat-datepicker #picker></mat-datepicker>-->
+    <!--<div>-->
+      <!--<button mat-button matStepperPrevious>Wróć</button>-->
+      <!--<button mat-button matStepperNext>Dalej</button></div>-->
+  <!--</mat-step>-->
+  <!--<mat-step>-->
+    <!--<ng-template matStepLabel>KROK 4 - Uwagi, wskazówki do badań</ng-template>-->
+    <!--<mat-form-field>-->
+      <!--<textarea matInput placeholder="Tutaj należy wpisać uwagi, np. mam aktualne badania z krwi, psychotechniczne, itp."></textarea>-->
+    <!--</mat-form-field>-->
+    <!--<div>-->
+      <!--<button mat-button (click)="stepper.reset()">Wyczyść cały formularz</button>-->
+      <!--<button mat-button (submit)="stepper.send()">Zarezerwuj termin</button>-->
+    <!--</div>-->
+  <!--</mat-step>-->
 
-  <!--<button mat-button (click)="stepper.reset()">Reset</button>-->
-</mat-horizontal-stepper>
+  <!--&lt;!&ndash;<button mat-button (click)="stepper.reset()">Reset</button>&ndash;&gt;-->
+<!--</mat-horizontal-stepper>-->

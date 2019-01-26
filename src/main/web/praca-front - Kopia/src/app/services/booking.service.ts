@@ -12,15 +12,13 @@ const options = {
 })
 export class BookingService {
 
-  private URL: string = "http://localhost:8080/api/bookin-details/";
+  private URL: string = "http://localhost:8080/api/";
 
-  getAllBookings(token: string) {
-    options.headers.append('Authorization', 'Bearer' + token);
-    return this._http.get(this.URL + 'all', options);
+  submitBooking(booking) {
+    return this._http.post(this.URL + 'bookings/add', booking, options);
   }
- getTypes(){
-    return this._http.get("http://localhost:8080/api/types/all", options);
+  getBookingsByUserId(id) {
+    return this._http.get(this.URL + 'booking-details/user/' + id, options);
   }
-
   constructor(private _http: HttpClient) { }
 }

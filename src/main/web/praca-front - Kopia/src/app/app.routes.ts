@@ -21,8 +21,8 @@ export const routes: Routes = [
         {path: 'portal-ustawienia', component: PortalUstawieniaComponent},
         {path: 'portal-archiwum', component: PortalArchiwumComponent}
     ]},
-    {path: 'portal-rezerwacja', component: PortalRezerwacjaComponent},
-    {path: 'portal-ustawienia', component: PortalUstawieniaComponent},
+    // {path: 'portal-rezerwacja', component: PortalRezerwacjaComponent},
+    // {path: 'portal-ustawienia', component: PortalUstawieniaComponent},
 
 
 

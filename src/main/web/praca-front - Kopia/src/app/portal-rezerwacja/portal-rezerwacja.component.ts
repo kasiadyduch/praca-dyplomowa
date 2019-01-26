@@ -1,33 +1,59 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormControlName, FormGroup, Validators} from '@angular/forms';
 import {TypesService} from '../services/types.service';
 import {UploadService} from '../services/upload.service';
+import {UsersService} from '../services/users.service';
+import {DatePipe} from '@angular/common';
+import {BookingService} from "../services/booking.service";
 
 @Component({
   selector: 'app-portal-rezerwacja',
   templateUrl: './portal-rezerwacja.component.html',
   styleUrls: ['./portal-rezerwacja.component.css'],
-  providers: [UploadService]
+  providers: [UploadService, UsersService, DatePipe, BookingService]
 })
 export class PortalRezerwacjaComponent implements OnInit {
-  private result: Object;
-
-  constructor(private _formBuilder: FormBuilder, private  _typesService: TypesService, private _uploadService:UploadService) { }
-
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  isOptional = false;
+  filePath;
+  constructor(private _formBuilder: FormBuilder, private  _typesService: TypesService, private _uploadService: UploadService,
+              private _usersService: UsersService, private _datePipe: DatePipe, private _bookingService: BookingService) { }
+  email: string = localStorage.getItem('SUB');
   minDate = new Date;
   types: any;
-  token: string = localStorage.getItem("APP_TOKEN");
+  token: string = localStorage.getItem('APP_TOKEN');
+  userId: number;
 
-
+  bookingForm = new FormGroup({ });
+  // userid = new FormControl(this.userId);
+  typeid = new FormControl();
+  date = new FormControl();
+  // attachmentpath = new
+  createForm() {
+    this.bookingForm = this._formBuilder.group({
+      // userid: this.userId,
+      typeid: '',
+      date: '',
+    });
+  }
+  submitForm(form) {
+    form.addControl('userid', new FormControl(this.userId));
+    form.addControl('attachmentpath', new FormControl(this.filePath));
+    console.log(this.filePath);
+    const tempDate = form.controls['date'].value;
+    const formattedDate = this._datePipe.transform(tempDate, 'yyyy-MM-dd');
+    form.patchValue({
+      'date' : formattedDate
+    });
+    console.log(form.value);
+    this._bookingService.submitBooking(form.value).subscribe(data => {});
+  }
   handleFileInput(value) {
     console.log(value);
-    this._uploadService.uploadFile(value[0]).subscribe(data => {
-      this.result = data;
+    const formData = new FormData();
+    formData.append('file', value[0]);
+    this._uploadService.uploadFile(formData).subscribe(data => {
+      this.filePath = data;
     });
-    console.log(this.result);
+
   }
 
 
@@ -37,16 +63,14 @@ export class PortalRezerwacjaComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.token);
-    this.firstFormGroup = this._formBuilder.group({
-      date: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ''
-    });
+    this.createForm();
     this._typesService.getAllTypes(this.token).subscribe(data => {
       this.types = data;
       console.log(this.types);
+    });
+    this._usersService.getByEmail(this.email).subscribe(data => {
+      this.userId = data['id'];
+      console.log(this.userId);
     });
   }
 

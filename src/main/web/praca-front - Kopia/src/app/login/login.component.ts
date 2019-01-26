@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
       var decodedToken = helper.decodeToken(token['token']);
       localStorage.setItem("SUB", decodedToken.sub);
       localStorage.setItem("EXP", decodedToken.exp);
-      this._router.navigate(['/home']);
+      this._router.navigate(['/portal-home']);
     });
  }
   ngOnInit() {
