@@ -123,20 +123,7 @@
   textarea:-ms-input-placeholder { color: #1b3815;}
   
   /*---------------------------------------------*/
-  button {
-      outline: none !important;
-      border: none;
-      background: transparent;
-      /*color: #00a8b1;*/
-      /*font-size: 18px;*/
-      /*font-weight: bold;*/
 
-  }
-  
-  button:hover {
-      cursor: pointer;
-  }
-  
   iframe {
       border: none !important;
   }
@@ -286,16 +273,17 @@
   }
   
   /*------------------------------------------------------------------
-  [ Button ]*/
+  /*[ Button ]*!*/
   .container-login100-form-btn {
     width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+display: -moz-box;
+display: -ms-flexbox;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+    margin-top: 50px;
   }
   
   .login100-form-btn {

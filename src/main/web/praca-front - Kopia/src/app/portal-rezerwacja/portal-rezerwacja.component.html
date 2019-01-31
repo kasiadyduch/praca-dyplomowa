@@ -1,12 +1,15 @@
 <h2> Formularz dodawania nowej rezerwacji</h2>
 <form [formGroup]="bookingForm" (ngSubmit)="submitForm(bookingForm)">
 <div class="col-md-12">
+
   <input type="file" id="file" (change)="handleFileInput($event.target.files)" accept="image/png, image/jpeg, application/pdf, image/jpg">
+
   <mat-select placeholder="Wybierz rodzaj badania" formControlName="typeid">
     <mat-option *ngFor="let type of types" [value]="type.id" >
     {{type.description}}
     </mat-option>
     </mat-select>
+
   <input matInput [min]="minDate" [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Wybierz" required
          formControlName="date">
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

@@ -30,6 +30,7 @@ import { PortalRezerwacjaComponent } from './portal-rezerwacja/portal-rezerwacja
 import { PortalUstawieniaComponent } from './portal-ustawienia/portal-ustawienia.component';
 import {CookieService} from 'ngx-cookie-service';
 import { PortalArchiwumComponent } from './portal-archiwum/portal-archiwum.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -76,11 +77,12 @@ import { PortalArchiwumComponent } from './portal-archiwum/portal-archiwum.compo
     MatSliderModule,
     MatDividerModule  ,
     MatSidenavModule,
+    MatChipsModule,
   ],
   exports: [MatTableModule,MatDividerModule,
   MatSliderModule,MatSelectModule,MatRadioModule,MatNativeDateModule,MatDatepickerModule,MatSnackBarModule,MatIconModule,
   MatDialogModule,MatProgressSpinnerModule,MatButtonModule,MatSortModule, MatCheckboxModule, MatToolbarModule,
-  MatCardModule, MatFormFieldModule, MatProgressSpinnerModule, MatInputModule,
+  MatCardModule, MatFormFieldModule, MatProgressSpinnerModule, MatInputModule, MatChipsModule,
   MatPaginatorModule],
   providers: [ CookieService,
     {provide: MAT_DATE_LOCALE, useValue: 'pl'}

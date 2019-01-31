@@ -20,9 +20,9 @@ export class UsersService {
   getByEmail(email: string) {
     return this._http.get(this.URL +  'email/' + email + '/');
   }
-  createUser(token: string) {
-    options.headers.append('Authorization', 'Bearer' + token);
-    return this._http.post(this.URL +  'add', options );
+  createUser(user) {
+    options.headers.append('Authorization', 'Bearer');
+    return this._http.post(this.URL +  'add', user, options );
   }
   constructor(private _http: HttpClient) { }
 }

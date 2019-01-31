@@ -4,7 +4,7 @@ import {TypesService} from '../services/types.service';
 import {UploadService} from '../services/upload.service';
 import {UsersService} from '../services/users.service';
 import {DatePipe} from '@angular/common';
-import {BookingService} from "../services/booking.service";
+import {BookingService} from '../services/booking.service';
 
 @Component({
   selector: 'app-portal-rezerwacja',

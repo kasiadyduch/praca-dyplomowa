@@ -11,9 +11,6 @@
             <mat-error *ngIf="username.invalid">
               {{getErrorMessage()}}
             </mat-error>
-            <!--<mat-error *ngIf="username.hasError('required')">-->
-            <!--Email is <strong>required</strong>-->
-            <!--</mat-error>-->
           </mat-form-field>
 
           <mat-form-field>
@@ -21,21 +18,12 @@
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
 
-
-          <div class="text-right p-t-13 p-b-23">
-						<span class="txt1">
-							Zapomniałeś
-						</span>
-
-            <a href="#" class="txt2">
-              Hasła ?
-            </a>
+          <div class="container-login100-form-btn">
+            <button class="login100-form-btn" type="submit">
+              Zaloguj się
+            </button>
           </div>
 
-          <!--<div class="container-login100-form-btn">-->
-          <!--<a class="login100-form-btn"> Zaloguj się</a>-->
-          <!--</div>-->
-          <button class="container-login100-form-btn" type="submit">Zaloguj się</button>
         </form>
 
         <div class="flex-col-c p-t-170 p-b-40">

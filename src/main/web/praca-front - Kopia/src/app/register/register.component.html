@@ -2,50 +2,43 @@
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+				<div class="login100-form validate-form p-l-55 p-r-55 p-t-178">
 					<span class="login100-form-title">
 						REJESTRACJA NOWEGO KONTA W PORTALU PACJENTA
           </span>
-          <form class="example-form">
-              <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Podaj imię" value="imię">
+          <form class="example-form" [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm)">
+          <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Podaj imię" formControlName="firstname">
                 </mat-form-field>
-            <form class="example-form">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Podaj nazwisko" value="nazwisko">
+                    <input matInput placeholder="Podaj nazwisko" formControlName="lastname">
                   </mat-form-field>
-            <form class="example-form">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Podaj PESEL" value="pesel">
+                    <input matInput placeholder="Podaj PESEL" formControlName="pesel">
                   </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Podaj kod pocztowy" value="kod pocztowy" id="1">
+                <input matInput placeholder="Podaj kod pocztowy" formControlName="postcode">
               </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Podaj miejscowość" value="miejscowość">
+                <input matInput placeholder="Podaj miejscowość" formControlName="city">
               </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Podaj ulicę" value="ulica">
+                <input matInput placeholder="Podaj ulicę" formControlName="street">
               </mat-form-field>
               <mat-form-field class="example-full-width">
-              <input matInput placeholder="Podaj nr budynku" value="nr budynku">
+              <input matInput placeholder="Podaj nr budynku" formControlName="snumber">
             </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Podaj nr lokalu" value="nr lokalu">
+                <input matInput placeholder="Podaj nr lokalu" formControlName="bnumber">
               </mat-form-field>
-                <form class="example-form">
                       <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Podaj numer telefonu" value="telefon">
+                        <input matInput placeholder="Podaj numer telefonu" formControlName="phone">
                       </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Wprowadź nazwę użytkownika" value="adres e-mail">
+                <input matInput placeholder="Wprowadź nazwę użytkownika" formControlName="email">
               </mat-form-field>
-          <form class="example-form">
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Wprowadź hasło" value="hasło">
+                  <input matInput placeholder="Wprowadź hasło" formControlName="password">
                 </mat-form-field>
-          <form class="example-form">
-                <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Potwierdź hasło" value="potwierdź hasło">
-                </mat-form-field>
-                <button mat-button>Zarejestruj się</button>
+
+                <button mat-button type="submit">Zarejestruj się</button>
