@@ -44,7 +44,8 @@ export class RegisterComponent implements OnInit {
     });
   }
 submitForm(form) {
-    this._usersService.createUser(form.value).subscribe(data => {
+  form.addControl('enabled', new FormControl(true));
+  this._usersService.createUser(form.value).subscribe(data => {
     });
 }
   ngOnInit() {

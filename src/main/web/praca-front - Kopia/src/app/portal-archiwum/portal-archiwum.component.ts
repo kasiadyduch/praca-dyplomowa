@@ -30,8 +30,9 @@ export class PortalArchiwumComponent implements OnInit {
   ngOnInit() {
     this._usersService.getByEmail(this.email).subscribe(data => {
       this.userid = data ['id'];
+      console.log(this.userid);
     });
-    this._bookingService.getBookingsByUserId(5).subscribe(data => {
+    this._bookingService.getBookingsByUserId(this.userid).subscribe(data => {
       this.bookings = data;
       for (let index = 0; index < this.bookings.length; index++) {
         this.bookings[index]['lp'] = index + 1;

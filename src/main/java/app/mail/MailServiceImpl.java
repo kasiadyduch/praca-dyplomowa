@@ -29,7 +29,7 @@ public class MailServiceImpl implements MailService {
             public void prepare(MimeMessage mimeMessage) throws Exception {
                 mimeMessage.setFrom("isrp.zpi@gmail.com");
                 mimeMessage.setRecipient( Message.RecipientType.TO, new InternetAddress( to ));
-                mimeMessage.setSubject("Potwierdzenie zgłoszenia wizyty na portalu ISRP");
+                mimeMessage.setSubject("Nowa rezerwacja");
                 mimeMessage.setHeader("Content-Type", "text/html; charset=UTF-8");
                 mimeMessage.setText(mess);
             }
