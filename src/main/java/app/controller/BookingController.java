@@ -45,16 +45,17 @@ public class BookingController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void createBooking(
+    public Integer createBooking(
             @RequestBody Booking booking) {
 //        return fileUploadService.uploadFile(file);
 //        booking.setAttachmentpath(filePath);
-        bookingRepository.save(new Booking(
+        return bookingRepository.save(new Booking(
                 0,
                 booking.getUserid(),
                 booking.getTypeid(),
                 booking.getDate(),
-                booking.getAttachmentpath()));
+                booking.getAttachmentpath())).getId();
+//        return booking.getId();
     }
 
     @RequestMapping(value = "{bookingid}", method = RequestMethod.POST)
