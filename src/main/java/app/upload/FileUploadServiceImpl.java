@@ -23,7 +23,8 @@ public class FileUploadServiceImpl implements FileUploadService {
                 byte[] bytes = file.getBytes();
 
                 // Creating the directory to store file
-                String rootPath = "C:/Users/Kasia/Downloads/PDbeta2-master";
+//                String rootPath = "C:/Users/Kasia/Downloads/PDbeta2-master";
+                String rootPath = System.getProperty("user.dir");
                 File dir = new File(rootPath + File.separator + "attachments");
                 if (!dir.exists())
                     dir.mkdirs();
