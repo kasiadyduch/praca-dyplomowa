@@ -35,7 +35,7 @@ public class MailServiceImpl implements MailService {
         javaMailSender.setPort(587);
         javaMailSender.setUsername("isrp.zpi@gmail.com");
         javaMailSender.setPassword("wsiz#1234");
-        String to = "karolinakozak9@gmail.com";
+        String to = "marcin.krzemien@cisc.com.pl";
         BookingDetails bookingDetails = bookingDetailsRepository.findOne(bookingId);
         User patient = userRepository.getOne(bookingDetails.getUser_id());
         String mess = "Nowa rezerwacja\nImię i nazwisko pacjenta: " + bookingDetails.getPatient() +
@@ -47,13 +47,13 @@ public class MailServiceImpl implements MailService {
             @Override
             public void prepare(MimeMessage mimeMessage) throws Exception {
                 MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
-                helper.setFrom("isrp.zpi@gmail.com");
+                helper.setFrom("isrp.zpi@gmail.com", "mpClient");
                 helper.setTo(to);
                 helper.setSubject("Nowa rezerwacja");
-//                helper.setHeader("Content-Type", "text/html; charset=UTF-8");
-                FileSystemResource file = new FileSystemResource(bookingDetails.getAttachmentpath());
-                helper.addAttachment(file.getFilename(), file);
                 helper.setText(mess);
+                String rootPath = System.getProperty("user.dir");
+                FileSystemResource file = new FileSystemResource(rootPath +  "\\attachments\\" + bookingDetails.getAttachmentpath());
+                helper.addAttachment(file.getFilename(), file);
             }
         };
         try {
