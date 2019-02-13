@@ -9,7 +9,7 @@ export class MailService {
 
   constructor(private _http: HttpClient) { }
 
-public sendMail(bookingId: number) {
-    return this._http.get(this.URL + bookingId);
+public sendMail(type: string, bookingId: string) {
+    return this._http.get(this.URL + type + '/' + bookingId);
 }
 }

@@ -20,5 +20,8 @@ export class BookingService {
   getBookingsByUserId(id) {
     return this._http.get(this.URL + 'booking-details/user/' + id, options);
   }
+  deleteBooking(bookingId){
+    return this._http.delete(this.URL + 'bookings/' + bookingId, options);
+  }
   constructor(private _http: HttpClient) { }
 }

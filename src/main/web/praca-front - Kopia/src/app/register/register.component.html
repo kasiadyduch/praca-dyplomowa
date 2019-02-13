@@ -8,37 +8,37 @@
           </span>
           <form class="example-form" [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm)">
           <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Podaj imię" formControlName="firstname">
+                  <input matInput placeholder="Podaj imię" formControlName="firstname" required>
                 </mat-form-field>
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Podaj nazwisko" formControlName="lastname">
+                    <input matInput placeholder="Podaj nazwisko" formControlName="lastname" required>
                   </mat-form-field>
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Podaj PESEL" formControlName="pesel">
+                    <input matInput placeholder="Podaj PESEL" formControlName="pesel" required>
                   </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Podaj kod pocztowy" formControlName="postcode">
+                <input matInput placeholder="Podaj kod pocztowy" formControlName="postcode" required>
               </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Podaj miejscowość" formControlName="city">
+                <input matInput placeholder="Podaj miejscowość" formControlName="city" required>
               </mat-form-field>
               <mat-form-field class="example-full-width">
                 <input matInput placeholder="Podaj ulicę" formControlName="street">
               </mat-form-field>
               <mat-form-field class="example-full-width">
-              <input matInput placeholder="Podaj nr budynku" formControlName="snumber">
+              <input matInput placeholder="Podaj nr budynku" formControlName="snumber" required>
             </mat-form-field>
               <mat-form-field class="example-full-width">
                 <input matInput placeholder="Podaj nr lokalu" formControlName="bnumber">
               </mat-form-field>
                       <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Podaj numer telefonu" formControlName="phone">
+                        <input matInput placeholder="Podaj numer telefonu" formControlName="phone" required>
                       </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Wprowadź nazwę użytkownika" formControlName="email">
+                <input matInput placeholder="Wprowadź nazwę użytkownika" formControlName="email" required>
               </mat-form-field>
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Wprowadź hasło" formControlName="password">
+                  <input matInput placeholder="Wprowadź hasło" formControlName="password" required>
                 </mat-form-field>
 
                 <button mat-button type="submit">Zarejestruj się</button>

@@ -1,68 +1,55 @@
-<h2> Formularz dodawania nowej rezerwacji</h2>
+<mat-sidenav-container class="example-container">
+<mat-sidenav-content>
+  <div class="jumbotron-body">
+    <div class="col-md-12 col-sm-12">
+      <h2 class="ser-title">Nowa rezerwacja </h2>
+      <hr class="botm-line">
+
 <form [formGroup]="bookingForm" (ngSubmit)="submitForm(bookingForm)">
-<div class="col-md-12">
-
-  <input type="file" id="file" (change)="handleFileInput($event.target.files)" accept="image/png, image/jpeg, application/pdf, image/jpg">
-
+  <div class="col-md-8 col-sm-8">
+  <i class="fa fa-arrow-down"></i> <h3>KROK I - załącz plik ze skierowaniem</h3>
+  <label class="input-group">
+    <input type="file" id="file" (change)="handleFileInput($event.target.files)" accept="image/png, image/jpeg, application/pdf, image/jpg">
+  </label>
+</div>
+  <div class="col-md-4 col-sm-4">
+    <i class="fa fa-wpforms"></i>
+    <i class="fa fa-paperclip"></i>
+  </div>
+  <div class="col-md-8 col-sm-8">
+  <i class="fa fa-arrow-down"></i><h3>KROK II - wybierz rodzaj badania</h3>
+  <h4>zgodnie z informacją zaznaczoną na skierowaniu</h4>
+  <label class="input-group">
   <mat-select placeholder="Wybierz rodzaj badania" formControlName="typeid">
-    <mat-option *ngFor="let type of types" [value]="type.id" >
+    <mat-option *ngFor="let type of types" [value]="type.id" aria-required="true">
     {{type.description}}
     </mat-option>
     </mat-select>
-
+  </label>
+  </div>
+  <div class="col-md-4 col-sm-4">
+    <i class="fa fa-mouse-pointer"></i>
+    <i class="fa fa-hand-pointer-o"></i>
+  </div>
+      <div class="col-md-8 col-sm-8">
+  <i class="fa fa-arrow-down"></i><h3>KROK III - wybierz datę badania</h3>
+  <h4>badania należy rejestrować z co najmniej 2 dniowym wyprzedzeniem</h4>
+  <label class="input-group">
   <input matInput [min]="minDate" [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Wybierz" required
          formControlName="date">
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
+  </label>
+      </div>
+  <div class="col-md-4 col-sm-4">
+    <i class="fa fa-calendar-check-o"></i>
+    <i class="fa fa-check"></i>
+  </div>
+  <div class="col-md-12 col-sm-12">
   <button mat-button type="submit">Zarezerwuj termin</button>
-
-</div>
+  </div>
 </form>
-<!--<mat-horizontal-stepper linear #stepper>-->
-    <!--<form [formGroup]="firstFormGroup">-->
-  <!--<mat-step [stepControl]="firstFormGroup">-->
-      <!--<ng-template matStepLabel>KROK 1 - Wybór terminu</ng-template>-->
-      <!--<mat-form-field class="">-->
-        <!--<input type="file" id="file" (change)="handleFileInput($event.target.files)" accept="image/png, image/jpeg, application/pdf, image/jpg">-->
-        <!--</mat-form-field>-->
-        <!--<div>-->
-          <!--<button mat-button matStepperNext>Dalej</button>-->
-        <!--</div>-->
-  <!--</mat-step>-->
-  <!--<mat-step [stepControl]="secondFormGroup" [optional]="isOptional">-->
-    <!--&lt;!&ndash;<form [formGroup]="secondFormGroup">&ndash;&gt;-->
-      <!--<ng-template matStepLabel>KROK 2 - Wybór rodzaju badań</ng-template><mat-form-field>-->
-      <!--<mat-select placeholder="Wybierz rodzaj badania">-->
-        <!--<mat-option *ngFor="let type of types" [value]="type.id" >-->
-          <!--{{type.description}}-->
-        <!--</mat-option>-->
-      <!--</mat-select>-->
-    <!--</mat-form-field>-->
-      <!--<div>-->
-        <!--<button mat-button matStepperPrevious>Wróć</button>-->
-        <!--<button mat-button matStepperNext>Dalej</button>-->
-      <!--</div>-->
-  <!--</mat-step>-->
-    <!--</form>-->
-  <!--<mat-step>-->
-    <!--<ng-template matStepLabel>KROK 3 - Dołączanie skierowania</ng-template>-->
-    <!--&lt;!&ndash;<input matInput [min]="minDate" [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Wybierz" required formControlName="date">&ndash;&gt;-->
-    <!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
-    <!--<mat-datepicker #picker></mat-datepicker>-->
-    <!--<div>-->
-      <!--<button mat-button matStepperPrevious>Wróć</button>-->
-      <!--<button mat-button matStepperNext>Dalej</button></div>-->
-  <!--</mat-step>-->
-  <!--<mat-step>-->
-    <!--<ng-template matStepLabel>KROK 4 - Uwagi, wskazówki do badań</ng-template>-->
-    <!--<mat-form-field>-->
-      <!--<textarea matInput placeholder="Tutaj należy wpisać uwagi, np. mam aktualne badania z krwi, psychotechniczne, itp."></textarea>-->
-    <!--</mat-form-field>-->
-    <!--<div>-->
-      <!--<button mat-button (click)="stepper.reset()">Wyczyść cały formularz</button>-->
-      <!--<button mat-button (submit)="stepper.send()">Zarezerwuj termin</button>-->
-    <!--</div>-->
-  <!--</mat-step>-->
-
-  <!--&lt;!&ndash;<button mat-button (click)="stepper.reset()">Reset</button>&ndash;&gt;-->
-<!--</mat-horizontal-stepper>-->
+      </div>
+    </div>
+</mat-sidenav-content>
+</mat-sidenav-container>

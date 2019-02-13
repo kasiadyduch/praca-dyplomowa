@@ -30,7 +30,7 @@ public class MailServiceImpl implements MailService {
     public UserRepository userRepository;
 
     @Override
-    public void sendEmail(Integer bookingId) throws SendFailedException {
+    public void sendEmail(Integer bookingId, String type) throws SendFailedException {
         javaMailSender.setHost("smtp.gmail.com");
         javaMailSender.setPort(587);
         javaMailSender.setUsername("isrp.zpi@gmail.com");
@@ -38,23 +38,36 @@ public class MailServiceImpl implements MailService {
         String to = "katarzyna.dyduch@ultramedic.com.pl";
         BookingDetails bookingDetails = bookingDetailsRepository.findOne(bookingId);
         User patient = userRepository.getOne(bookingDetails.getUser_id());
-        String mess = "Nowa rezerwacja\nImię i nazwisko pacjenta: " + bookingDetails.getPatient() +
-                "\nTelefon kontaktowy: " + patient.getPhone() +
-                "\nTyp badania: " + bookingDetails.getDescription() +
-                "\nData: " + bookingDetails.getDate();
+        String mess;
+        if (type.equals("book")) {
+            mess = "Nowa rezerwacja\nImię i nazwisko pacjenta: " + bookingDetails.getPatient() +
+                    "\nTelefon kontaktowy: " + patient.getPhone() +
+                    "\nTyp badania: " + bookingDetails.getDescription() +
+                    "\nData: " + bookingDetails.getDate();
+        } else {
+            mess = "Anulowanie rezerwacji\nImię i nazwisko pacjenta: " + bookingDetails.getPatient() +
+                    "\nTelefon kontaktowy: " + patient.getPhone() +
+                    "\nTyp badania: " + bookingDetails.getDescription() +
+                    "\nData: " + bookingDetails.getDate();
+        }
 
         MimeMessagePreparator preparator = new MimeMessagePreparator() {
             @Override
             public void prepare(MimeMessage mimeMessage) throws Exception {
                 MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
-                helper.setFrom("isrp.zpi@gmail.com", "mpClient");
+                helper.setFrom("isrp.zpi@gmail.com", "Portal Pacjenta");
                 helper.setTo(to);
-                helper.setSubject("Nowa rezerwacja");
+                if (type.equals("book")) {
+
+                    helper.setSubject("Nowa rezerwacja");
+                    String rootPath = System.getProperty("user.dir");
+                    FileSystemResource file = new FileSystemResource(rootPath +  "\\attachments\\" + bookingDetails.getAttachmentpath());
+                    helper.addAttachment(file.getFilename(), file);
+                } else {
+                    helper.setSubject("Anulowanie rezerwacji");
+                }
                 helper.setText(mess);
-                String rootPath = System.getProperty("user.dir");
-                FileSystemResource file = new FileSystemResource(rootPath +  "\\attachments\\" + bookingDetails.getAttachmentpath());
-                helper.addAttachment(file.getFilename(), file);
-            }
+        }
         };
         try {
             javaMailSender.send(preparator);

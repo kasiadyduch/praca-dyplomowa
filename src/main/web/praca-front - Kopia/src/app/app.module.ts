@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatNativeDateModule,MatSnackBarModule,MatIconModule,MatDialogModule, MatButtonModule, MatTableModule,
-MatPaginatorModule , MatSortModule, MatCheckboxModule, MatToolbarModule, MatCard, MatCardModule, MatFormField,
+MatPaginatorModule , MatSortModule, MatCheckboxModule, MatCard, MatCardModule, MatFormField,
  MatFormFieldModule, MatProgressSpinnerModule, MatInputModule, MatSidenavModule, MAT_DATE_LOCALE } from  '@angular/material';
 import {MatDatepickerModule} from  '@angular/material/datepicker';
 import {MatRadioModule} from  '@angular/material/radio';
@@ -31,6 +31,8 @@ import { PortalUstawieniaComponent } from './portal-ustawienia/portal-ustawienia
 import {CookieService} from 'ngx-cookie-service';
 import { PortalArchiwumComponent } from './portal-archiwum/portal-archiwum.component';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { PortalGlownaComponent } from './portal-glowna/portal-glowna.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import {MatChipsModule} from '@angular/material/chips';
     PortalHomeComponent,
     PortalRezerwacjaComponent,
     PortalUstawieniaComponent,
-    PortalArchiwumComponent
+    PortalArchiwumComponent,
+    PortalGlownaComponent,
   ],
   imports: [
     BrowserModule,

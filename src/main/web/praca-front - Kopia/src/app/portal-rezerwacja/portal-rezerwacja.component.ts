@@ -50,7 +50,7 @@ export class PortalRezerwacjaComponent implements OnInit {
     this._bookingService.submitBooking(form.value).subscribe(data => {
       this.bookingId = data;
       console.log(this.bookingId);
-      this._mailService.sendMail(this.bookingId).subscribe(next => {
+      this._mailService.sendMail('book', this.bookingId).subscribe(next => {
         console.log('TO JA!');
       }, error => {
         console.log('Coś poszło nie tak :/');

@@ -19,11 +19,12 @@ public class MailServiceController {
         mailService = new MailServiceImpl();
     }
 
-    @RequestMapping(value = "/send/{bookingId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/send/{type}/{bookingId}", method = RequestMethod.GET)
     public void send(
+            @PathVariable(value = "type") String type,
             @PathVariable(value = "bookingId") Integer bookingId
     ) throws SendFailedException {
-        mailService.sendEmail(bookingId);
+        mailService.sendEmail(bookingId, type);
     }
 
 }

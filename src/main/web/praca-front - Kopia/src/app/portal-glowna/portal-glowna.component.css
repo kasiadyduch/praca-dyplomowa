@@ -1,7 +1,3 @@
-table {
-  width: 100%;
-  padding: 30px;
-}
 .example-container {
   background-image: url("../../assets/img/doctor-using-digital-tablet_51195-2129.jpg"); opacity: 0.9;
   background-size: 100%;
@@ -22,7 +18,7 @@ a:hover {
 
 i {
   margin: 0 0 0 0;
-  font-size: 64px;
+  size: 64px;
   color: #00af34;
 }
 .material-icons {
@@ -47,11 +43,11 @@ p {
 .jumbotron-body {
   background-color: white;
   margin: 0px;
-  height: 1000px;
-
+  height: 500px;
 }
 h2 {
   color: #00af34;
+  text-align: center;
   font-size: 30px;
   margin: 20px;
 }
@@ -61,16 +57,6 @@ h1 {
   text-align: center;
   padding: 25px;
 }
-h4 {
-  margin: 20px;
-  color: #00af34;
-}
-h3 {
-  color: #00af34;
-  font-size: 20px;
-  margin: 20px;
-
-}
 span {
   margin: 10px;
   font-size: 19px;
@@ -79,17 +65,3 @@ b {
   color: white;
   font-size: 15px;
 }
-.input-group {
-  margin: 40px;
-  width: 100%;
-}
-
-button {
-  background-color: #00af34;
-  color: #ffffff;
-  width: 100%;
-  height: 50px;
-  font-size: 25px;
-}
-
-
