@@ -20,9 +20,15 @@ export class UsersService {
   getByEmail(email: string) {
     return this._http.get(this.URL +  'email/' + email + '/');
   }
+  getById(id: number) {
+    return this._http.get(this.URL + id);
+  }
   createUser(user) {
     options.headers.append('Authorization', 'Bearer');
     return this._http.post(this.URL +  'add', user, options );
+  }
+  updateUser(id: number, updatedUser: FormData) {
+    return this._http.post(this.URL + id, updatedUser, options);
   }
   constructor(private _http: HttpClient) { }
 }

@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatNativeDateModule,MatSnackBarModule,MatIconModule,MatDialogModule, MatButtonModule, MatTableModule,
-MatPaginatorModule , MatSortModule, MatCheckboxModule, MatCard, MatCardModule, MatFormField,
- MatFormFieldModule, MatProgressSpinnerModule, MatInputModule, MatSidenavModule, MAT_DATE_LOCALE } from  '@angular/material';
+  MatPaginatorModule , MatSortModule, MatCheckboxModule, MatCard, MatCardModule, MatFormField,
+  MatFormFieldModule, MatProgressSpinnerModule, MatInputModule, MatSidenavModule, MAT_DATE_LOCALE } from  '@angular/material';
 import {MatDatepickerModule} from  '@angular/material/datepicker';
 import {MatRadioModule} from  '@angular/material/radio';
 import {MatSelectModule} from  '@angular/material/select';
@@ -33,6 +33,7 @@ import { PortalArchiwumComponent } from './portal-archiwum/portal-archiwum.compo
 import {MatChipsModule} from '@angular/material/chips';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { PortalGlownaComponent } from './portal-glowna/portal-glowna.component';
+import { ModalComponent } from './portal-rezerwacja/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { PortalGlownaComponent } from './portal-glowna/portal-glowna.component';
     PortalUstawieniaComponent,
     PortalArchiwumComponent,
     PortalGlownaComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,13 +85,14 @@ import { PortalGlownaComponent } from './portal-glowna/portal-glowna.component';
     MatChipsModule,
   ],
   exports: [MatTableModule,MatDividerModule,
-  MatSliderModule,MatSelectModule,MatRadioModule,MatNativeDateModule,MatDatepickerModule,MatSnackBarModule,MatIconModule,
-  MatDialogModule,MatProgressSpinnerModule,MatButtonModule,MatSortModule, MatCheckboxModule, MatToolbarModule,
-  MatCardModule, MatFormFieldModule, MatProgressSpinnerModule, MatInputModule, MatChipsModule,
-  MatPaginatorModule],
+    MatSliderModule,MatSelectModule,MatRadioModule,MatNativeDateModule,MatDatepickerModule,MatSnackBarModule,MatIconModule,
+    MatDialogModule,MatProgressSpinnerModule,MatButtonModule,MatSortModule, MatCheckboxModule, MatToolbarModule,
+    MatCardModule, MatFormFieldModule, MatProgressSpinnerModule, MatInputModule, MatChipsModule,
+    MatPaginatorModule],
   providers: [ CookieService,
     {provide: MAT_DATE_LOCALE, useValue: 'pl'}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalComponent]
 })
 export class AppModule { }

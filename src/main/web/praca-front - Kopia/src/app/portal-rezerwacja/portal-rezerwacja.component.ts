@@ -6,6 +6,8 @@ import {UsersService} from '../services/users.service';
 import {DatePipe} from '@angular/common';
 import {BookingService} from '../services/booking.service';
 import {MailService} from '../services/mail.service';
+import { MatDialog } from '@angular/material';
+import { ModalComponent } from './modal/modal.component';
 
 @Component({
   selector: 'app-portal-rezerwacja',
@@ -17,7 +19,7 @@ export class PortalRezerwacjaComponent implements OnInit {
   filePath;
   constructor(private _formBuilder: FormBuilder, private  _typesService: TypesService, private _uploadService: UploadService,
               private _usersService: UsersService, private _datePipe: DatePipe, private _bookingService: BookingService,
-              private  _mailService: MailService) { }
+              private  _mailService: MailService, public dialog: MatDialog) { }
   email: string = localStorage.getItem('SUB');
   minDate = new Date;
   types: any;
@@ -69,6 +71,13 @@ export class PortalRezerwacjaComponent implements OnInit {
   myFilter = (d: Date): boolean => {
     const day = d.getDay();
     return day !== 0 && day !== 6;
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width: '300px',
+      // data: {userId: value}
+    });
   }
 
   ngOnInit() {

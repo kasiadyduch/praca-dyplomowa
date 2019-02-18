@@ -1,33 +1,45 @@
-<h2>Zarządzaj swoimi danymi</h2>
-<p> Dane podstawowe</p>
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Imię" value="{{usernameFirstName}}">
-  </mat-form-field>
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Nazwisko" value="{{usernameLastName}}">
-    </mat-form-field>
-
-    <p> Dane kontaktowe</p>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Adres zamieszkania - kod pocztowy" value="{{usernamePostCode}}">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Adres zamieszkania - miejscowość" value="{{usernameCity}}">
-    </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Adres zamieszkania - ulica" value="{{usernameStreet}}">
-      </mat-form-field>
-      <mat-form-field class="example-form">
-        <input matInput placeholder="Adres zamieszkania - numer budynku" value="{{usernameSnumber}}">
-        </mat-form-field>
-        <mat-form-field class="example-form">
-          <input matInput placeholder="Adres zamieszkania - numer domu" value="{{usernameBnumber}}">
+<mat-sidenav-container class="example-container">
+  <mat-sidenav-content>
+    <div class="jumbotron-body">
+      <div class="col-md-12 col-sm-12">
+        <h2 class="ser-title">ZARZĄDZAJ SWOIMI DANYMI</h2>
+        <hr class="botm-line">
+        <p> Dane podstawowe</p>
+        <form class="example-form"  [formGroup]="editionForm" (ngSubmit)="submitForm(editionForm)">
+          <mat-form-field class="example-full-width">
+              <!-- [value]="user?.firstname" -->
+            <input matInput placeholder="Imię" formControlName="firstname">
           </mat-form-field>
-          <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Telefon" value="{{usernamePhone}}">
-        </mat-form-field>
-            <button mat-button>Zapisz dane</button>
-            <button mat-button> Anuluj</button>
+          <!-- <form class="example-form"> -->
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Nazwisko" formControlName="lastname" [value]="user?.lastname">
+            </mat-form-field>
+
+            <p> Dane kontaktowe</p>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Adres zamieszkania - kod pocztowy" formControlName="postcode" [value]="user?.postcode">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Adres zamieszkania - miejscowość" formControlName="city" [value]="user?.city">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Adres zamieszkania - ulica" formControlName="street" [value]="user?.street">
+            </mat-form-field>
+            <mat-form-field class="example-form">
+              <input matInput placeholder="Adres zamieszkania - numer budynku" formControlName="snumber" [value]="user?.snumber">
+            </mat-form-field>
+            <mat-form-field class="example-form">
+              <input matInput placeholder="Adres zamieszkania - numer domu" formControlName="bnumber" [value]="user?.bnumber">
+            </mat-form-field>
+            <!-- <form class="example-form"> -->
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Telefon" formControlName="phone" [value]="user?.phone">
+              </mat-form-field>
+              <button type="submit" mat-button>Zapisz dane</button>
+            <!-- </form> -->
+          <!-- </form> -->
+        </form>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

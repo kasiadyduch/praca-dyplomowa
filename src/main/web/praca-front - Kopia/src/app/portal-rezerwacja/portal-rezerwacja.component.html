@@ -45,11 +45,34 @@
     <i class="fa fa-calendar-check-o"></i>
     <i class="fa fa-check"></i>
   </div>
-  <div class="col-md-12 col-sm-12">
-  <button mat-button type="submit">Zarezerwuj termin</button>
-  </div>
+    <div class="col-md-12 col-sm-12">
+      <button mat-button type="submit" (click)="openDialog()">Zarezerwuj termin</button>
+    </div>
 </form>
-      </div>
+  
+
+</div>
     </div>
 </mat-sidenav-content>
+<!-- <div class="modal fade" style="z-index: 99999;" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
 </mat-sidenav-container>
+
+

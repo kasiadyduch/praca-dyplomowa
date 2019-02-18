@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UsersService} from '../services/users.service';
 import {FormBuilder, FormControl, FormControlName, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,9 +11,10 @@ import {FormBuilder, FormControl, FormControlName, FormGroup, Validators} from '
 
 })
 export class RegisterComponent implements OnInit {
+  [x: string]: any;
   token: string = localStorage.getItem('APP_TOKEN');
 
-  constructor(private _usersService: UsersService, private _formBuilder: FormBuilder) {
+  constructor(private _router: Router, private _usersService: UsersService, private _formBuilder: FormBuilder) {
   }
 
   registerForm = new FormGroup({});
@@ -46,7 +48,10 @@ export class RegisterComponent implements OnInit {
 submitForm(form) {
   form.addControl('enabled', new FormControl(true));
   this._usersService.createUser(form.value).subscribe(data => {
+    this._router.navigate(['/login']);
     });
+
+
 }
   ngOnInit() {
     this.createForm();
