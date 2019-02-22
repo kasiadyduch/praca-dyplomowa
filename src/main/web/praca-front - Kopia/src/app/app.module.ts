@@ -56,7 +56,7 @@ import { ModalComponent } from './portal-rezerwacja/modal/modal.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {useHash: true}),
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
