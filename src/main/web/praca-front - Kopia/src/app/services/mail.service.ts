@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 export class MailService {
-  private URL = 'mp-ultra.herokuapp.com/send/';
+  private URL = 'http://mp-ultra.herokuapp.com/send/';
 
   constructor(private _http: HttpClient) { }
 

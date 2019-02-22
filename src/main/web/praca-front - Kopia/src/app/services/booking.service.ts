@@ -12,7 +12,7 @@ const options = {
 })
 export class BookingService {
 
-  private URL: string = "mp-ultra.herokuapp.com/api/";
+  private URL: string = "http://mp-ultra.herokuapp.com/api/";
 
   submitBooking(booking) {
     return this._http.post(this.URL + 'bookings/add', booking, options);
