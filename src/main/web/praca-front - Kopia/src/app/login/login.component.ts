@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       this.username.hasError('email') ? 'Niepoprawny e-mail' :
         '';
   }
- submitForm(form: NgForm) {
+ submitForm(form: any) {
     this._loginService.doLogin(form.value).subscribe(token => {
       localStorage.setItem("APP_TOKEN", token['token']);
       var decodedToken = helper.decodeToken(token['token']);

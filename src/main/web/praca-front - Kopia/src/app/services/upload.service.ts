@@ -11,7 +11,7 @@ const options = {
 })
 export class UploadService {
 
-  private URL: string = "http://localhost:8080/upload/uploadFile";
+  private URL: string = "mp-ultra.herokuapp.com/upload/uploadFile";
 
   constructor(private _http: HttpClient) { }
 

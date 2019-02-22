@@ -11,7 +11,7 @@ const options = {
 })
 export class UsersService {
 
-  private URL = 'http://localhost:8080/api/users/';
+  private URL = 'mp-ultra.herokuapp.com/api/users/';
 
   getMpAdminUsers(token: string) {
     options.headers.append('Authorization', 'Bearer' + token);

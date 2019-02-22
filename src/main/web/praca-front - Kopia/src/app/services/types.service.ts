@@ -13,7 +13,7 @@ const options = {
 })
 export class TypesService {
 
-  private URL: string = "http://localhost:8080/api/types/";
+  private URL: string = "mp-ultra.herokuapp.com/api/types/";
 
   getAllTypes(token: string) {
     options.headers.set("Authorization", "Bearer " + token);

@@ -13,9 +13,9 @@ const options = {
 })
 export class LoginService {
 
-  private URL: string = "http://localhost:8080/auth";
+  private URL: string = "mp-ultra.herokuapp.com/auth";
 
-  doLogin(loginForm: NgForm) {
+  doLogin(loginForm: any) {
     return this._http.post(this.URL, loginForm, options);
   }
 
