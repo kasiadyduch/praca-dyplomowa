@@ -23,10 +23,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/custom-theme.scss",
-              "src/styles.css"
+//              "custom-theme.scss",
+//              "assets/css/font-awesome.min.css",
+//              "assets/css/bootstrap.min.css",
+//              "assets/css/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+////              "src/assets/js/jquery.min.js",
+////              "src/assets/js/bootstrap.min.js",
+////              "src/assets/js/jquery.easing.min.js",
+////              "src/assets/js/custom.js"
+//////              "assets/contactform/contactform.js"
+            ]
           },
           "configurations": {
             "production": {
