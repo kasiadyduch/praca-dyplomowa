@@ -13,7 +13,7 @@ const options = {
 })
 export class LoginService {
 
-  private URL: string = "http://mp-ultra.herokuapp.com/auth";
+  private URL: string = "https://mp-ultra.herokuapp.com/auth";
 
   doLogin(loginForm: any) {
     return this._http.post(this.URL, loginForm, options);

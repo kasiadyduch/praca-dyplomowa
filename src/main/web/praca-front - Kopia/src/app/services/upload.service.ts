@@ -11,7 +11,7 @@ const options = {
 })
 export class UploadService {
 
-  private URL: string = "http://mp-ultra.herokuapp.com/upload/uploadFile";
+  private URL: string = 'https://mp-ultra.herokuapp.com/upload/uploadFile';
 
   constructor(private _http: HttpClient) { }
 
