@@ -96,13 +96,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                         HttpMethod.GET,
                         "/",
-                        "/*.html",
-                        "/favicon.ico",
+                        "/**/*.html",
+                        "/**/*.favicon.ico",
                         "/**/*.html",
                         "/**/*.css",
                         "/**/*.js",
-                        "/*.png",
-                        "/*.jpg"
+                        "/**/*.png",
+                        "/**/*.jpg",
+                        "/**/*.svg",
+                        "/**/*.ttf",
+                        "/**/*.otf",
+                        "/**/*.bootstrap.min.js",
+                        "/**/*.jqeury.easing.min.js",
+                        "/**/*.jquery.min.js"
                 );
     }
 
