@@ -23,7 +23,8 @@
               "src/assets"
             ],
             "styles": [
-//              "custom-theme.scss",
+              "src/custom-theme.scss",
+              "src/styles.css"
 //              "assets/css/font-awesome.min.css",
 //              "assets/css/bootstrap.min.css",
 //              "assets/css/styles.css"
