@@ -29,6 +29,7 @@ public class MailServiceImpl implements MailService {
     @Autowired
     public UserRepository userRepository;
 
+
     
     @Override
     public void sendEmail(Integer bookingId, String type) throws SendFailedException {
