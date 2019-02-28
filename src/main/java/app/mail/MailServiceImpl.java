@@ -34,7 +34,7 @@ public class MailServiceImpl implements MailService {
         javaMailSender.setHost("smtp.gmail.com");
         javaMailSender.setPort(587);
         javaMailSender.setUsername("isrp.zpi@gmail.com");
-        javaMailSender.setPassword("wsiz#1234");
+        javaMailSender.setPassword("wsiz#12345");
         String to = "katarzyna.dyduch@ultramedic.com.pl";
         BookingDetails bookingDetails = bookingDetailsRepository.findOne(bookingId);
         User patient = userRepository.getOne(bookingDetails.getUser_id());
