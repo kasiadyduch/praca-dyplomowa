@@ -98,17 +98,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/",
                         "/**/*.html",
                         "/**/*.favicon.ico",
-                        "/**/*.html",
                         "/**/*.css",
                         "/**/*.js",
                         "/**/*.png",
                         "/**/*.jpg",
                         "/**/*.svg",
                         "/**/*.ttf",
+                        "/**/*.woff",
+                        "/**/*.woff2",
                         "/**/*.otf",
+                        "/**/*.jquery.min.js",
                         "/**/*.bootstrap.min.js",
-                        "/**/*.jqeury.easing.min.js",
-                        "/**/*.jquery.min.js"
+                        "/**/*.jquery.easing.min.js"
                 );
     }
 
