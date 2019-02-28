@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
  submitForm(form: any) {
     this._loginService.doLogin(form.value).subscribe(token => {
       localStorage.setItem("APP_TOKEN", token['token']);
-      var decodedToken = helper.decodeToken(token['token']);
+      let decodedToken = helper.decodeToken(token['token']);
       localStorage.setItem("SUB", decodedToken.sub);
       localStorage.setItem("EXP", decodedToken.exp);
       this._router.navigate(['/portal-home']);
