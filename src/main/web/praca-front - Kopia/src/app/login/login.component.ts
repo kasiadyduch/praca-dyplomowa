@@ -32,14 +32,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // submitForm(form: NgForm) {
-  //   console.log(form.value);
-  //   this._loginService.doLogin(form.value).subscribe(token => {
-  //     localStorage.setItem("APP_TOKEN", token['token']);
-  //     this._router.navigate(['/portal-home']);
-  //   })
-  // }
-
   getErrorMessage() {
     return this.username.hasError('required') ? 'Wprowadź adres e-mail' :
       this.username.hasError('email') ? 'Niepoprawny e-mail' :

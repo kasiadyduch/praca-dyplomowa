@@ -1,4 +1,5 @@
-package app.config;
+
+        package app.config;
 
 import app.security.JwtAuthenticationEntryPoint;
 import app.security.JwtAuthorizationTokenFilter;
@@ -39,9 +40,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${jwt.route.authentication.path}")
     private String authenticationPath;
 
-    @Value("/upload/uploadFile")
-    private String uploadPath;
-
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
@@ -69,10 +67,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/auth/**").permitAll()
-		        .antMatchers("/api/**").permitAll()
-		        .antMatchers("/api/users/mpAdmin").permitAll()
-                .antMatchers("/upload/uploadFile").permitAll()
-                .antMatchers("/send/**").permitAll()
+                .antMatchers("/api/**").permitAll()
+                .antMatchers("/api/users/mpAdmin").permitAll()
+                .antMatchers("/attachments/**").permitAll()
                 .anyRequest().authenticated();
 
         httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
@@ -84,31 +81,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .ignoring()
                 .antMatchers(
                         HttpMethod.POST,
-                        authenticationPath,
-                        uploadPath
-                )
-                .antMatchers(
-                        HttpMethod.OPTIONS,
-                        uploadPath
+                        authenticationPath
                 )
                 .and()
                 .ignoring()
                 .antMatchers(
                         HttpMethod.GET,
                         "/",
-                        "/**/*.html",
-                        "/**/*.favicon.ico",
+                        "/*.html",
+                        "/favicon.ico",
                         "/**/*.html",
                         "/**/*.css",
-                        "/**/*.js",
-                        "/**/*.png",
-                        "/**/*.jpg",
-                        "/**/*.svg",
-                        "/**/*.ttf",
-                        "/**/*.otf",
-                        "/**/*.bootstrap.min.js",
-                        "/**/*.jqeury.easing.min.js",
-                        "/**/*.jquery.min.js"
+                        "/**/*.js"
                 );
     }
 
