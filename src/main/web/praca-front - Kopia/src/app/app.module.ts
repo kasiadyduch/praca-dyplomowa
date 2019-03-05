@@ -34,6 +34,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { PortalGlownaComponent } from './portal-glowna/portal-glowna.component';
 import { ModalComponent } from './portal-rezerwacja/modal/modal.component';
+import { PrivacyModalComponent } from './strona-glowna/privacy-modal/privacy-modal.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ModalComponent } from './portal-rezerwacja/modal/modal.component';
     PortalArchiwumComponent,
     PortalGlownaComponent,
     ModalComponent,
+    PrivacyModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,6 +95,6 @@ import { ModalComponent } from './portal-rezerwacja/modal/modal.component';
     {provide: MAT_DATE_LOCALE, useValue: 'pl'}
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ModalComponent]
+  entryComponents: [ModalComponent, PrivacyModalComponent]
 })
 export class AppModule { }

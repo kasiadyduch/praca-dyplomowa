@@ -55,8 +55,8 @@ export class PortalUstawieniaComponent implements OnInit {
     this._usersService.updateUser(this.userId, form.value).subscribe(data => {
     this._router.navigate(['/portal-home/portal-glowna']);
     console.log(form.value);
-    });
     location.reload();
+    });
   }
 
 

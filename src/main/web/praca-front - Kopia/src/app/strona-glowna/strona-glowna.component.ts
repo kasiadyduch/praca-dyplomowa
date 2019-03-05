@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-declare let $: any;
+import * as jquery from 'jquery';
+import { PrivacyModalComponent } from './privacy-modal/privacy-modal.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-strona-glowna',
@@ -8,11 +10,15 @@ declare let $: any;
 })
 export class StronaGlownaComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
-    $(window).on('load', function() {
-      $('#exampleModalCenter').modal('show');
+    this.openDialog();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(PrivacyModalComponent, {
+      width: '600px',
     });
   }
 
