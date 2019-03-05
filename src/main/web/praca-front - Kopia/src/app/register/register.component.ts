@@ -17,6 +17,8 @@ export class RegisterComponent implements OnInit {
   constructor(private _router: Router, private _usersService: UsersService, private _formBuilder: FormBuilder) {
   }
 
+
+
   registerForm = new FormGroup({});
   firstname = new FormControl('');
   lastname = new FormControl('');
@@ -29,6 +31,8 @@ export class RegisterComponent implements OnInit {
   phone = new FormControl('');
   email = new FormControl('');
   password = new FormControl('');
+
+  hide: boolean = true;
 
   createForm() {
     this.registerForm = this._formBuilder.group({
@@ -48,13 +52,13 @@ export class RegisterComponent implements OnInit {
 submitForm(form) {
   form.addControl('enabled', new FormControl(true));
   this._usersService.createUser(form.value).subscribe(data => {
+    location.reload();
     this._router.navigate(['/login']);
     });
-
-
+    
 }
   ngOnInit() {
     this.createForm();
-
+  
    }
 }

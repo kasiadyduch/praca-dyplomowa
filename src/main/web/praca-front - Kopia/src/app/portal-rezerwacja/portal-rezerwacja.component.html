@@ -9,7 +9,7 @@
   <div class="col-md-8 col-sm-8">
   <i class="fa fa-arrow-down"></i> <h3>KROK I - załącz plik ze skierowaniem</h3>
   <label class="input-group">
-    <input type="file" id="file" (change)="handleFileInput($event.target.files)" accept="image/png, image/jpeg, application/pdf, image/jpg">
+    <input type="file" id="file" (change)="handleFileInput($event.target.files)" accept="image/png, image/jpeg, application/pdf, image/jpg" required>
   </label>
 </div>
   <div class="col-md-4 col-sm-4">
@@ -20,7 +20,7 @@
   <i class="fa fa-arrow-down"></i><h3>KROK II - wybierz rodzaj badania</h3>
   <h4>zgodnie z informacją zaznaczoną na skierowaniu</h4>
   <label class="input-group">
-  <mat-select placeholder="Wybierz rodzaj badania" formControlName="typeid">
+  <mat-select placeholder="Wybierz rodzaj badania" formControlName="typeid" aria-required="true">
     <mat-option *ngFor="let type of types" [value]="type.id" aria-required="true">
     {{type.description}}
     </mat-option>
@@ -35,8 +35,8 @@
   <i class="fa fa-arrow-down"></i><h3>KROK III - wybierz datę badania</h3>
   <h4>badania należy rejestrować z co najmniej 2 dniowym wyprzedzeniem</h4>
   <label class="input-group">
-  <input matInput [min]="minDate" [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Wybierz" required
-         formControlName="date">
+  <input matInput [min]="minDate" [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Wybierz"
+         formControlName="date" required>
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
   </label>
@@ -49,30 +49,9 @@
       <button mat-button type="submit" (click)="openDialog()">Zarezerwuj termin</button>
     </div>
 </form>
-  
-
 </div>
     </div>
 </mat-sidenav-content>
-<!-- <div class="modal fade" style="z-index: 99999;" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div> -->
 </mat-sidenav-container>
 
 

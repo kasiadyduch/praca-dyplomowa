@@ -1,0 +1,41 @@
+h1 {
+  
+    font-size: 20px;
+    color: white;
+    margin: 20px;
+    text-align: center;
+}
+
+.mat-dialog-title {
+    background-color:  #005da6;
+    font-size: 20px;
+    color: white;
+    margin: 20px;
+    text-align: center;
+}
+
+h5 {
+    font-size: 20px;
+    color: white;
+    margin: 20px;
+  }
+  h4 {
+    text-align: center;
+  }
+  
+  .btn-primary {
+    background-color: #005da6;
+  }
+  .top-info-cookie {
+    background-color: #005da6;
+    color: white;
+    width: 100%;
+  }
+  .wrapper {
+    padding: 12px;
+  }
+  .mat-raised-button {
+      background-color:  #005da6;
+      color: white;
+    
+  }

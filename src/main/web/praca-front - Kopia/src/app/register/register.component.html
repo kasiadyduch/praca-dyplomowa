@@ -32,12 +32,14 @@
               </mat-form-field>
                       <mat-form-field class="example-full-width">
                         <input matInput placeholder="Podaj numer telefonu" formControlName="phone" required>
+                         <mat-icon matSuffix>phone</mat-icon>
                       </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Wprowadź nazwę użytkownika" formControlName="email" required>
+                <input matInput placeholder="Wprowadź adres e-mail" formControlName="email" required>
               </mat-form-field>
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Wprowadź hasło" formControlName="password" required>
+                  <input matInput placeholder="Wprowadź hasło" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </mat-form-field>
             <mat-checkbox class="example-full-width" style="size: 10px">Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z
               ustawą o ochronie<br> danych osobowych w związku z rejestracją konta w Portalu Pacjenta.
