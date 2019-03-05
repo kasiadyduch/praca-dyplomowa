@@ -63,7 +63,7 @@ public class MailServiceImpl implements MailService {
 
                     helper.setSubject("Nowa rezerwacja");
                     String rootPath = System.getProperty("user.dir");
-                    FileSystemResource file = new FileSystemResource(rootPath +  "\\attachments\\" + bookingDetails.getAttachmentpath());
+                    FileSystemResource file = new FileSystemResource(rootPath +  "//attachments//" + bookingDetails.getAttachmentpath());
                     helper.addAttachment(file.getFilename(), file);
                 } else {
                     helper.setSubject("Anulowanie rezerwacji");
